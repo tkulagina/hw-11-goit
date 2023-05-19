@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 import { fetchPictures } from "./fetch";
 import SimpleLightbox from "simplelightbox";
 
+//отримуемо доступ до елементів
 const refs = {
     searchForm: document.querySelector("#search-form"),
     inputEl: document.querySelector("input[name='searchQuery']"),
@@ -12,13 +13,16 @@ const refs = {
     btnLoad: document.querySelector(".load-more"),
 }
 
+//створюємо змінні
 let page = 1;
 const perPage = 40;
 let inputValue = "";
 let picturesToshow = 0;
 
+//додаємо слухача
 refs.searchForm.addEventListener("submit", onFormSubmit);
 
+//функція отримання запита
 async function onFormSubmit(evt) {
     evt.preventDefault();
     inputValue = refs.inputEl.value.trim();
@@ -48,6 +52,7 @@ async function onFormSubmit(evt) {
         return inputValue;
 }
 
+//функція малювання зображень
 function renderDate(pictures) {
     const markup = pictures.hits.map((picture) => {
         const { webformatURL, largeImageURL, tags, likes, views, comments, downloads } = picture;
@@ -76,6 +81,7 @@ function renderDate(pictures) {
     slowLoad();
 }
 
+//функція завантаження додаткових зображень
 function loadMore() {
     if (picturesToshow > 0) {
         refs.btnLoad.classList.remove("is-hiden");
@@ -87,6 +93,7 @@ function loadMore() {
     }
 }
 
+//функція додавання зображень
 async function onLoadMoreBtnSubmit() {
     try {        
         const pictures = await fetchPictures(inputValue, page, perPage);
@@ -99,12 +106,14 @@ async function onLoadMoreBtnSubmit() {
     }    
 }
 
+//функція просмотра галереї
 function galleryLightBox() {
     let gallery = new SimpleLightbox('.gallery a', { captionDelay: 250});
     gallery.on('show.simplelightbox');
     gallery.refresh();
 }
 
+//функція скрола
 function slowLoad() {
     const { height: cardHeight } = document
   .querySelector(".gallery")

@@ -4,7 +4,7 @@ const BASE_URL = "https://pixabay.com/api/";
 const API_KEY = "36458909-4e0d09ffdb7011fecd43404f2";
 
 
-export async function fetchPictures(value, page, perPage) {
+async function fetchPictures(value, page, perPage) {
       const searchParams = new URLSearchParams({
         key: API_KEY,
         q: value,
@@ -20,5 +20,6 @@ export async function fetchPictures(value, page, perPage) {
       } catch (error) {
         console.log(error);
       }
-    
-    }
+    };
+
+    export { fetchPictures };
