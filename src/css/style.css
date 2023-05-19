@@ -8,7 +8,7 @@ body {
     'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #F8D185;
   color: #212121;
   font-size: 14px;
   line-height: 1.15;
@@ -49,18 +49,29 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(115, 127, 197);
+  background: #F6853A;
   height: 50px;
   z-index: 100;
 }
 
 #search-form input {
-  height: 30px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 20px;
+  border-color: transparent;
 }
+
 #search-form button {
-  width: 80px;
-  height: 30px;
-  margin-left: 5px;
+  height: 40px;
+  width: 130px;
+  margin-left: 10px;
+  background-color: #CC5505;
+  color: #fff;
+    
+  font-size: 18px;
+  border-radius: 20px;
+  border-color: transparent;
 }
 
 .button-in {
@@ -87,7 +98,7 @@ img {
   align-items: center;
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
-  box-shadow: 0 0 3px 2px rgb(139, 128, 128);
+  box-shadow: 0 0 3px 2px #CC5505;
 }
 .gallery__image {
   width: 100%;
@@ -112,10 +123,12 @@ img {
 .load-more {
   display: block;
   margin: 20px auto;
-  background-color: rgb(25, 145, 201);
+  background-color: #CC5505;
   color: #fff;
   height: 40px;
   width: 130px;
-  border-radius: 3px;
   font-size: 18px;
+
+  border-radius: 20px;
+  border-color: transparent;  
 }

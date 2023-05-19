@@ -1,4 +1,4 @@
-
+//імпортуємо бібліотекі
 import './css/style.css';
 import Notiflix from 'notiflix';
 import { fetchPictures } from "./fetch";
@@ -9,9 +9,9 @@ const refs = {
     inputEl: document.querySelector("input[name='searchQuery']"),
     btnSubmit: document.querySelector("button[type='submit']"),
     gallery: document.querySelector(".gallery"),
-    btnEl: document.querySelector(".load-more"),
-    
+    btnLoad: document.querySelector(".load-more"),
 }
+
 let page = 1;
 const perPage = 40;
 let inputValue = "";
@@ -23,7 +23,7 @@ async function onFormSubmit(evt) {
     evt.preventDefault();
     inputValue = refs.inputEl.value.trim();
     refs.gallery.innerHTML = "";
-    refs.btnEl.classList.add("is-hiden");
+    refs.btnLoad.classList.add("is-hiden");
     page = 1;
     if(inputValue === "") {
         Notiflix.Notify.warning("Please, enter something");
@@ -78,11 +78,11 @@ function renderDate(pictures) {
 
 function loadMore() {
     if (picturesToshow > 0) {
-        refs.btnEl.classList.remove("is-hiden");
+        refs.btnLoad.classList.remove("is-hiden");
         page += 1;
-        refs.btnEl.addEventListener("click", onLoadMoreBtnSubmit);
+        refs.btnLoad.addEventListener("click", onLoadMoreBtnSubmit);
     } else { 
-        refs.btnEl.classList.add("is-hiden");  
+        refs.btnLoad.classList.add("is-hiden");  
         setTimeout(Notiflix.Notify.info("We're sorry, but you've reached the end of search results."), 1000);
     }
 }
