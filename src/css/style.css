@@ -67,8 +67,7 @@ img {
   width: 130px;
   margin-left: 10px;
   background-color: #CC5505;
-  color: #fff;
-    
+  color: #fff;    
   font-size: 18px;
   border-radius: 20px;
   border-color: transparent;
@@ -91,22 +90,23 @@ img {
 .gallery__item {
   margin: 5px;
 }
+
 .photo-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
   box-shadow: 0 0 3px 2px #CC5505;
 }
 .gallery__image {
   width: 100%;
   object-fit: cover;
 }
+
 .gallery__image:hover {
   opacity: 0.9;
 }
+
 .info {
   display: flex;
   width: 100%;
@@ -120,6 +120,7 @@ img {
   flex-direction: column;
   align-items: center;
 }
+
 .load-more {
   display: block;
   margin: 20px auto;
@@ -128,7 +129,6 @@ img {
   height: 40px;
   width: 130px;
   font-size: 18px;
-
   border-radius: 20px;
   border-color: transparent;  
 }

@@ -17,7 +17,7 @@ const refs = {
 let page = 1;
 const perPage = 40;
 let inputValue = "";
-let picturesToshow = 0;
+let picturesToShow = 0;
 
 //додаємо слухача
 refs.searchForm.addEventListener("submit", onFormSubmit);
@@ -38,7 +38,7 @@ async function onFormSubmit(evt) {
             if (pictures.hits.length === 0) {
                 Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
             }
-            picturesToshow = pictures.total - pictures.hits.length;
+            picturesToShow = pictures.total - pictures.hits.length;
             renderDate(pictures);
 
             if (pictures.hits.length >= 40) {
@@ -83,7 +83,7 @@ function renderDate(pictures) {
 
 //функція завантаження додаткових зображень
 function loadMore() {
-    if (picturesToshow > 0) {
+    if (picturesToShow > 0) {
         refs.btnLoad.classList.remove("is-hiden");
         page += 1;
         refs.btnLoad.addEventListener("click", onLoadMoreBtnSubmit);
@@ -99,7 +99,7 @@ async function onLoadMoreBtnSubmit() {
         const pictures = await fetchPictures(inputValue, page, perPage);
           
         renderDate(pictures);
-        picturesToshow -= pictures.hits.length;
+        picturesToShow -= pictures.hits.length;
         loadMore();
     } catch(error) {
         console.log(error);        
